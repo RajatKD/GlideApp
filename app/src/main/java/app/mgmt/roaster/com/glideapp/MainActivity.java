@@ -120,10 +120,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-       // checkPermission();
-       // requestPermission();
-//        permissionManager = new PermissionManager() {};
-//        permissionManager.checkAndRequestPermissions(this);
         showCamera();
         switch (view.getId()){
             case R.id.ivFirstImage:
@@ -150,28 +146,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    //    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        permissionManager.checkResult(REQUEST_PERMISSIONS, permissions, grantResults);
-//        ArrayList<String> granted = permissionManager.getStatus().get(0).granted;
-//        ArrayList<String> denied = permissionManager.getStatus().get(0).denied;
-//
-//        String concatGranted="";
-//        String concatDenied="";
-//        for (String item : granted){
-//            concatGranted += item;
-//        }
-//        for (String item : denied){
-//            concatDenied += item;
-//        }
-//
-//        Toast.makeText(this, "GRANTED"+concatGranted, Toast.LENGTH_LONG).show();
-//
-//        Toast.makeText(this, "DENIED"+concatDenied, Toast.LENGTH_LONG).show();
-//    }
-
-
-
 
     private void galleryIntent(int picNum){
         this.picNum = picNum;
@@ -188,12 +162,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(requestCode == SELECT_FILE){
                 if (picNum == 1)
                     try {
-
-                        Bitmap bmp =MediaStore.Images.Media.getBitmap(
-                                getApplicationContext().getContentResolver(),
-                                data.getData());
-                        Toast.makeText(this, "Image first Uri: "+data.getData(), Toast.LENGTH_LONG).show();
-
                         GlideApp.with(getApplicationContext())
                                 .load(bmp)
                                 .override(800, 1200)
@@ -204,9 +172,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 else
                     try {
-                        Bitmap bmp =MediaStore.Images.Media.getBitmap(
-                                getApplicationContext().getContentResolver(),
-                                data.getData());
 
                         GlideApp.with(getApplicationContext())
                                 .load(bmp)
